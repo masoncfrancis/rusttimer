@@ -1,14 +1,20 @@
 use std::thread;
 use std::time::Duration;
-
-
-use indicatif::ProgressBar;
+use std::io::{self, Write};
 
 fn main() {
-    let pb = ProgressBar::new(1024);
-    for _ in 0..1024 {
-        thread::sleep(Duration::from_millis(5));
-        pb.inc(1);
+    run_timer(5);
+}
+
+fn run_timer(seconds: i32) {
+
+    if seconds == 0 {
+        print!("{}", "\r".to_owned() + "Time's up!");
+        return;
+    } else {
+        print!("{}", "\r".to_owned() + &seconds.to_string());
+        io::stdout().flush().unwrap();
+        thread::sleep(Duration::from_secs(1));
+        run_timer(seconds - 1);
     }
-    pb.finish_with_message("done");
 }
