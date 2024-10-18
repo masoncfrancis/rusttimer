@@ -38,6 +38,8 @@ fn min_timer(minutes: i32, seconds: i32) {
     if seconds == 0 && minutes == 0 {
         print!("{}", "\r".to_owned() + "Time's up!");
         return;
+    } else {
+        // Finish this
     }
 }
 
@@ -45,5 +47,7 @@ fn hr_timer(hours: i32, minutes: i32, seconds: i32) {
     if hours == 0 && seconds == 0 && minutes == 0 {
         print!("{}", "\r".to_owned() + "Time's up!");
         return;
+    } else {
+        // Finish this
     }
 }
